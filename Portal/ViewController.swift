@@ -24,10 +24,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
+        let scene = SCNScene(named: "art.scnassets/spaceTube.scn")!
         sceneView.scene = scene
+        let boxGeometry = SCNBox(width: 0.1, height:0.1, length: 0.1, chamferRadius: 0)
+
+        let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.position = SCNVector3Make(0, 0, -0.5);
+        sceneView.scene.rootNode.addChildNode(boxNode)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
